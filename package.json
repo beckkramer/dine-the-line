@@ -1,16 +1,19 @@
 {
   "name": "dine-the-line",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://github.com/beckkramer/dine-the-line",
+  "author": "beckkramer <kramer.beck@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "node-yelp-fusion": "^1.0.4",
+    "nodemon": "^1.14.12"
   }
 }
