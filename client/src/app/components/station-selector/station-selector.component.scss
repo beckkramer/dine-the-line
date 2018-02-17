@@ -1,0 +1,12 @@
+.list--listbox {
+    max-height: 18em;
+    overflow-y: auto;
+    position: relative;
+}
+
+[role="listbox"] {
+    min-height: 18em;
+    padding: 0px;
+    background: white;
+    border: 1px solid #aaa;
+}
