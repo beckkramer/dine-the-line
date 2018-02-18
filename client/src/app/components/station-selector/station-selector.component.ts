@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Station } from '../../station';
 import { StationSelectorService } from './station-selector.service';
 
@@ -27,5 +27,5 @@ export class StationSelectorComponent implements OnInit {
   onSelect(station: Station): void {
     this.selectedStation = station;
   }
-
 }
+

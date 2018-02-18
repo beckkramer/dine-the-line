@@ -1,21 +1,21 @@
 <h2>Stations</h2>
 
-<div *ngIf="selectedStation">
-  <h3>{{selectedStation.name}} Station</h3>
-  <button (click)="selectedStation = null">Pick a different station</button>
-</div>
-
-<div *ngIf="!selectedStation">
+<div >
   <h3>Select a Station:</h3>
-  <ul role="listbox" id="station_listbox" name="station_listbox" class="list--listbox">
-    <li *ngFor="let station of stations"
-      aria-selected="false"
-      (click)="onSelect(station)"
-      role="option"
-      value="{{station.location}}">
-        {{station.name}} Station<br />
-        Lines: <span className="station-lines">{{station.lines.active.join(', ')}}</span><br />
-        <img *ngIf="station.accessible" src="/assets/img/a11y-icon.svg" alt="accessible" />
+  <ul 
+    class="station-list"
+    *ngIf="!selectedStation">
+    <li *ngFor="let station of stations">
+      <button
+        class="station-button"
+        (click)="onSelect(station)">
+        <app-station-detail [station]="station"></app-station-detail>
+      </button>
     </li>
   </ul>
+</div>
+
+<div *ngIf="selectedStation">
+  <app-station-detail [station]="selectedStation"></app-station-detail>
+  <button (click)="selectedStation = null">Pick a different station</button>
 </div>

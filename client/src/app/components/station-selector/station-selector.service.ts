@@ -19,4 +19,11 @@ export class StationSelectorService {
     return this.http.get<Station[]>(this.stationUrl);
   }
 
+  filterStations(currentStations: Station[]) {
+    let filteredStations = currentStations;
+    
+    console.log(filteredStations);
+    return filteredStations;
+  }
+
 }
