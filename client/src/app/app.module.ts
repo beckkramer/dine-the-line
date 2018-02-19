@@ -11,7 +11,9 @@ import { StationSelectorComponent } from './components/station-selector/station-
 import { StationDetailComponent } from './components/station-detail/station-detail.component';
 import { ResultSetComponent } from './components/result-set/result-set.component';
 import { ResultDetailComponent } from './components/result-detail/result-detail.component';
-import { StationSelectorService } from './components/station-selector/station-selector.service';
+
+import { ResultsService } from './services/results.service';
+import { StationService } from './services/station.service';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { StationSelectorService } from './components/station-selector/station-se
     HttpClientModule,
   ],
   providers: [
-    StationSelectorService,
+    ResultsService,
+    StationService,
   ],
   bootstrap: [AppComponent]
 })

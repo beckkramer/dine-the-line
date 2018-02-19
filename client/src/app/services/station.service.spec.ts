@@ -4,22 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { Station } from '../../station';
-import { StationSelectorService } from './station-selector.service';
+import { Station } from '../station';
+import { StationService } from './station.service';
 
-describe('StationSelectorService', () => {
+describe('StationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
       ],
       providers: [
-        StationSelectorService,
+        StationService,
       ]
     });
   });
 
-  it('should be created', inject([StationSelectorService], (service: StationSelectorService) => {
+  it('should be created', inject([StationService], (service: StationService) => {
     expect(service).toBeTruthy();
   }));
 });

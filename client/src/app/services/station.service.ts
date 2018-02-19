@@ -4,10 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { Station } from '../../station';
+import { Station } from '../station';
 
 @Injectable()
-export class StationSelectorService {
+export class StationService {
 
   private stationUrl = '/api/stations';
 
@@ -21,8 +21,6 @@ export class StationSelectorService {
 
   filterStations(currentStations: Station[]) {
     let filteredStations = currentStations;
-    
-    console.log(filteredStations);
     return filteredStations;
   }
 

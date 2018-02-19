@@ -1,21 +1,20 @@
 <h2>Stations</h2>
 
-<div >
+<div *ngIf="!displayStation">
   <h3>Select a Station:</h3>
-  <ul 
-    class="station-list"
-    *ngIf="!selectedStation">
+  <ul class="station-list">
     <li *ngFor="let station of stations">
       <button
         class="station-button"
-        (click)="onSelect(station)">
+        (click)="selectStation(station)">
         <app-station-detail [station]="station"></app-station-detail>
       </button>
     </li>
   </ul>
 </div>
 
-<div *ngIf="selectedStation">
-  <app-station-detail [station]="selectedStation"></app-station-detail>
-  <button (click)="selectedStation = null">Pick a different station</button>
+<div *ngIf="displayStation">
+  <h3>Selected Station:</h3>
+  <app-station-detail [station]="displayStation"></app-station-detail>
+  <button (click)="reset()">Pick a different station</button>
 </div>

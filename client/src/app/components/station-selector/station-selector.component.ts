@@ -1,6 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Station } from '../../station';
-import { StationSelectorService } from './station-selector.service';
+import { StationService } from '../../services/station.service';
 
 @Component({
   selector: 'app-station-selector',
@@ -9,23 +9,33 @@ import { StationSelectorService } from './station-selector.service';
 })
 export class StationSelectorComponent implements OnInit {
 
-  stations: Station[];
-  selectedStation: Station;
+  @Output() selectedStation:EventEmitter <Station> = new EventEmitter();
 
-  constructor(private stationSelectorService: StationSelectorService) { }
+  stations: Station[];
+  displayStation: Station;
+
+  constructor(
+    private StationService: StationService,
+  ) { }
 
   ngOnInit() {
     this.getAllStations();
   }
 
   getAllStations(): void {
-    this.stationSelectorService
+    this.StationService
       .getAllStations()
       .subscribe(stations => this.stations = stations);
   }
 
-  onSelect(station: Station): void {
-    this.selectedStation = station;
+  reset(): void {
+    this.selectedStation.emit(null);
+    this.displayStation = null;
+  }
+
+  selectStation(station: Station): void {
+    this.selectedStation.emit(station);
+    this.displayStation = station;
   }
 }
 

@@ -1,5 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
-<app-filter-set></app-filter-set>
-<app-station-selector></app-station-selector>
-<app-result-set></app-result-set>
+
+<app-station-selector
+    (selectedStation)="loadStation($event)">
+</app-station-selector>
+
+<div *ngIf="currentStation">
+    <app-result-set [station]="currentStation"></app-result-set>
+</div>

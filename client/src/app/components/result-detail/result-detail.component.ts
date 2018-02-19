@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-result-detail',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultDetailComponent implements OnInit {
 
+  @Input() result: any;
+
+  rating_alt: string;
+  star_image: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.rating_alt = 'rated ' + this.result.rating + ' stars';
+    this.star_image = 'assets/img/yelp/stars/regular_' + String(this.result.rating).replace('.5', '_half') + '.png';
   }
-
 }
