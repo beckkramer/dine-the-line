@@ -6,14 +6,19 @@
   "author": "beckkramer <kramer.beck@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "client": "cd client && npm start",
-    "server": "nodemon server.js",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "devclient": "cd client && npm start",
+    "devserver": "nodemon server.js",
+    "prodclient": "cd client && npm install",
+    "prodserver": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\"",
+    "start": "concurrently --kill-others-on-fail \"npm run prodserver\" \"npm run prodclient\""
   },
   "dependencies": {
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
-    "node-yelp-fusion": "^1.0.4",
+    "node-yelp-fusion": "^1.0.4"
+  },
+  "devDependencies": {
     "nodemon": "^1.14.12"
   }
 }

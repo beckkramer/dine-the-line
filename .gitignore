@@ -1,5 +1,6 @@
 /node_modules
 /client/node_modules
+/zzz-client
 .env
 package-lock.json
 yarn.lock
