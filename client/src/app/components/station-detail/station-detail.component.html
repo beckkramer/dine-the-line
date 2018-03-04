@@ -1,3 +1,7 @@
-{{station.name}} Station<br />
-Lines: <span className="station-lines">Lines</span><br />
-<img *ngIf="station.accessible" src="/assets/img/a11y-icon.svg" alt="accessible" />
+<div class="station-detail">
+    <div>
+        <h4>{{station.name}} Station</h4>
+        Lines: <span class="station-detail__lines">{{lines}}</span><br />    
+    </div>
+    <img *ngIf="station.accessible" src="/assets/img/a11y-icon.svg" alt="accessible" />
+</div>

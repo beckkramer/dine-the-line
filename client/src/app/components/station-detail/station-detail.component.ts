@@ -11,9 +11,12 @@ export class StationDetailComponent implements OnInit {
 
   @Input() station: Station;
 
+  lines: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.lines = this.station.lines.active.join(', ');
   }
 
 }

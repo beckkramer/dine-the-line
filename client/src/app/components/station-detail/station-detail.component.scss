@@ -1,12 +1,15 @@
-.station-button {
-    display: block;
-    padding: 0.5rem;
-    position: relative;
+
+.station-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     text-align: left;
-    width: 100%;
-    img {
-        position: absolute;
-        right: 1rem;
-        top: 0.5rem;
+
+    h4 {
+        margin: 0;
+    }
+
+    &__lines {
+        text-transform: capitalize;
     }
 }
