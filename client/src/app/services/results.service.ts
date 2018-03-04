@@ -11,7 +11,6 @@ export class ResultsService {
   ) { }
 
   getResults(location: string): Observable<any> {
-
     const url = '/api/yelp/' + location + '/403';
     return this.http.get<any>(url);
   }

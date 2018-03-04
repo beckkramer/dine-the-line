@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Yelp = require('node-yelp-fusion');
+const yelp = require('yelp-fusion');
 
 /*
 TODO: Add in for gender neutral restrooms (gender_neutral_restrooms) and currently open (open_now)
@@ -10,11 +10,8 @@ router.get('/:location/:radius', function(req, res, next) {
 
   let latitude, longitude;
 
-  let radius = req.params.radius; // 805 = half a mile
-  let yelp = new Yelp({
-    id: process.env.CLIENT_ID,
-    secret: process.env.CLIENT_SECRET,
-  });
+  const radius = req.params.radius; // 805 = half a mile
+  const client = yelp.client(process.env.API_KEY);
 
   if (req.params.location) {
     let locationArray = req.params.location.split(',');
@@ -23,8 +20,13 @@ router.get('/:location/:radius', function(req, res, next) {
   }
 
 
-  yelp.search("sort_by=distance&limit=50&categories=restaurants&radius=" + radius + "&longitude=" + longitude + "&latitude=" + latitude)
-    .then(function(result){
+  client.search({
+      'categories':'restaurants',
+      'latitude': latitude,
+      'longitude': longitude,
+      'radius': radius,
+      'sorty_by': 'distance',
+    }).then(function(result){
       res.status(200).json(result);
     }).catch(function(error){
       console.log(error);
