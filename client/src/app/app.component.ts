@@ -7,7 +7,7 @@ import { Station } from './station';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  
   currentStation:Station;
 
   loadStation(selectedStation: Station) {

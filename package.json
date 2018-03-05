@@ -16,7 +16,6 @@
   "dependencies": {
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
-    "node-yelp-fusion": "^1.0.4",
     "yelp-fusion": "^2.0.3"
   },
   "devDependencies": {

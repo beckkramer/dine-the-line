@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import { ResultDetailComponent } from '../result-detail/result-detail.component';
 import { ResultSetComponent } from './result-set.component';
+
+import { ResultsService } from '../../services/results.service';
 
 describe('ResultSetComponent', () => {
   let component: ResultSetComponent;
@@ -8,7 +13,16 @@ describe('ResultSetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultSetComponent ]
+      declarations: [
+        ResultDetailComponent,
+        ResultSetComponent
+      ],
+      providers: [
+        ResultsService
+      ],
+      imports: [
+        HttpClientTestingModule
+      ],
     })
     .compileComponents();
   }));

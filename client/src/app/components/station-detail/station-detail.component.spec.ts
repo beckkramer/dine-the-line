@@ -10,10 +10,17 @@ describe('StationDetailComponent', () => {
     accessible: true,
     name: 'Test Station',
     lines: {
-      all: {},
-      active: [
-        'foo'
-      ]
+      active: ['blue'],
+      all: {
+          blue: true,
+          brown: false,
+          green: false,
+          orange: false,
+          pink: false,
+          purple: false,
+          red: false,
+          yellow: false
+      }
     },
     location: 'foo',
     stop_id: 123,

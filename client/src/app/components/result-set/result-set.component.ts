@@ -1,5 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 import { ResultsService } from '../../services/results.service';
+
+import { Business } from '../../business';
 import { Station } from '../../station';
 
 @Component({
@@ -11,21 +19,21 @@ export class ResultSetComponent implements OnInit {
 
   @Input() station: Station;
 
-  results:any;
+  results: Business[];
 
   constructor(
     private ResultsService: ResultsService,
   ) { }
 
   ngOnInit() {
-    console.log(this.station);
     this.getResults(this.station);
   }
 
   getResults(station: Station): void {
     this.ResultsService
       .getResults(station.location)
-      .subscribe(results => this.results = results.businesses);
+      .subscribe(results => {
+        this.results = results.jsonBody.businesses
+      });
   }
-
 }

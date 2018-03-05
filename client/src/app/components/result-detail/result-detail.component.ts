@@ -15,7 +15,9 @@ export class ResultDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.rating_alt = 'rated ' + this.result.rating + ' stars';
-    this.star_image = 'assets/img/yelp/stars/regular_' + String(this.result.rating).replace('.5', '_half') + '.png';
+    if(this.result.rating) {
+      this.rating_alt = 'rated ' + this.result.rating + ' stars';
+      this.star_image = 'assets/img/yelp/stars/regular_' + String(this.result.rating).replace('.5', '_half') + '.png';
+    }
   }
 }

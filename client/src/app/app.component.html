@@ -5,6 +5,5 @@
     (selectedStation)="loadStation($event)">
 </app-station-selector>
 
-<div *ngIf="currentStation">
-    <app-result-set [station]="currentStation"></app-result-set>
-</div>
+
+<app-result-set *ngIf="currentStation" [station]="currentStation"></app-result-set>

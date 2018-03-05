@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StationDetailComponent } from '../station-detail/station-detail.component';
 import { StationSelectorComponent } from './station-selector.component';
 
-import { StationSelectorService } from './station-selector.service';
+import { StationService } from '../../services/station.service';
 
 describe('StationSelectorComponent', () => {
   let component: StationSelectorComponent;
@@ -21,7 +21,7 @@ describe('StationSelectorComponent', () => {
         HttpClientModule,
       ],
       providers: [
-        StationSelectorService,
+        StationService,
       ]
     })
     .compileComponents();
