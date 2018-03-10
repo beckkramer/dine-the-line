@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
+import 'rxjs/add/observable/of';
+
 import { Station } from '../station';
 
 @Injectable()
@@ -19,9 +21,21 @@ export class StationService {
     return this.http.get<Station[]>(this.stationUrl);
   }
 
-  filterStations(currentStations: Station[]) {
-    let filteredStations = currentStations;
-    return filteredStations;
+  public getFilteredStations(filters: any = [], allStations: Station[]) {
+    
+    let currentStations: Station[] = allStations;
+    let filteredStations: Station[];
+
+    // TODO: add A11y filter:
+    //.filter(station => this.a11yToggle ? station.accessible === true : 'all')
+
+    if (filters.lines.length) {
+      filteredStations = currentStations.filter(station => station.lines.active.some(line=> filters.lines.includes(line)));
+    } else {
+      filteredStations = allStations;
+    }
+
+    return Observable.of(filteredStations);
   }
 
 }

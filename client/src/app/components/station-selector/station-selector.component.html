@@ -1,7 +1,6 @@
-<div *ngIf="!displayStation">
+<div [hidden]="displayStation">
   <h2>Select a Station:</h2>
   <app-station-filter (stationFilters)="filterStations($event)"></app-station-filter>
-  Lines to Filter: {{linesToFilter}}
   <ul class="station-list">
     <li *ngFor="let station of stations">
       <button
