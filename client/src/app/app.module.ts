@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FilterSetComponent } from './components/filter-set/filter-set.component';
-import { StationSelectorComponent } from './components/station-selector/station-selector.component';
 import { StationDetailComponent } from './components/station-detail/station-detail.component';
-import { ResultSetComponent } from './components/result-set/result-set.component';
+import { StationFilterComponent } from './components/station-filter/station-filter.component';
+import { StationSelectorComponent } from './components/station-selector/station-selector.component';
 import { ResultDetailComponent } from './components/result-detail/result-detail.component';
+import { ResultSetComponent } from './components/result-set/result-set.component';
 
 import { ResultsService } from './services/results.service';
 import { StationService } from './services/station.service';
@@ -21,6 +21,7 @@ import { StationService } from './services/station.service';
     AppComponent,
     HeaderComponent,
     FilterSetComponent,
+    StationFilterComponent,
     StationSelectorComponent,
     StationDetailComponent,
     ResultSetComponent,
@@ -30,6 +31,7 @@ import { StationService } from './services/station.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ResultsService,

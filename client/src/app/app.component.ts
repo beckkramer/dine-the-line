@@ -7,8 +7,8 @@ import { Station } from './station';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  currentStation:Station;
+
+  currentStation: Station;
 
   loadStation(selectedStation: Station) {
     this.currentStation = selectedStation;

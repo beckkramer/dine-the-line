@@ -13,6 +13,7 @@ export class StationSelectorComponent implements OnInit {
 
   stations: Station[];
   displayStation: Station;
+  linesToFilter: any = [];
 
   constructor(
     private StationService: StationService,
@@ -36,6 +37,10 @@ export class StationSelectorComponent implements OnInit {
   selectStation(station: Station): void {
     this.selectedStation.emit(station);
     this.displayStation = station;
+  }
+
+  filterStations(filters: any) {
+    this.linesToFilter = filters.linesToFilter;
   }
 }
 

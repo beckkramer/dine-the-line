@@ -1,0 +1,12 @@
+
+<fieldset [formGroup]="filters">
+  <legend>Filter by Lines</legend>
+  <label *ngFor="let line of lines; let i=index">
+    <input
+      [formControl]="filters.controls['selectedLines'].controls[i]"
+      (change)="updateSelectedLines()"
+      name="selectedLines"
+      type="checkbox" />
+      {{line}}
+  </label>
+</fieldset>
