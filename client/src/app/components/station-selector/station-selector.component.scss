@@ -1,13 +1,41 @@
 .station-list {
-    border: 1px solid #ccc;
-    max-height: 20rem;
+    
+    background: rgba(0,0,0,0.1);
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(max-content, auto);
     list-style-type: none;
-    padding: 0;
-    overflow-y: scroll;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    position: relative;
+
+    @media screen and (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 60rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .station-button {
+
+    background: radial-gradient(circle at 80%, rgba(255,255,255,0.20), rgba(255,255,255,0.1));
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 3px;
+    color: #fff;
     display: block;
-    padding: 1rem;
+    font-weight: 400;
+    height: 100%;
+    padding: 0.65rem 1.25rem;
+    position: relative;
+    transition: ease-in 0.05s transform;
     width: 100%;
+
+    &:hover,
+    &:focus {
+        background: rgba(255,255,255,0.15);
+        border-color: rgba(255,255,255,0.20);
+        transform: scale(1.05);
+    }
+
 }

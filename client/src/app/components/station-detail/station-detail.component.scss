@@ -3,14 +3,19 @@
     
     display: flex;
     flex-direction: row;
+    align-content: center;
     justify-content: space-between;
     text-align: left;
 
-    .station-detail__title {
+    &__title {
+        display: inline;
         margin: 0;
+        vertical-align: baseline;
     }
 
     &__lines {
+        display: block;
+        line-height: 1;
         text-transform: capitalize;
     }
 }

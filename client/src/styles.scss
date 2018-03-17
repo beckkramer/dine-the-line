@@ -1,14 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-@import url('https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow|Saira+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Anton|Dosis|Hind');
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px; width: 1px; 
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 18px;
-  font-family: "Saira Condensed", sans-serif;
+  font-family: 'Dosis', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, rgb(20, 74, 155), rgb(45, 109, 206));
+  margin: 0;
+}
+
+h2,h3 {
+  //font-family: Hind;
+  font-weight: 400;
 }
 
 h1 {
+  margin: 0;
+}
+
+h2 {
   margin: 0;
 }
 
@@ -21,4 +47,18 @@ h4 {
 
 ul {
   margin: 0;
+}
+
+
+button {
+  background: rgb(16, 43, 179);
+  border-style: solid;
+  border-width: 0 0 3px;
+  border-color: rgb(5, 19, 85);
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
 }

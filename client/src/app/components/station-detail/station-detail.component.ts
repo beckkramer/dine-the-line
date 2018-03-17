@@ -16,7 +16,7 @@ export class StationDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.lines = this.station.lines.active.join(', ');
+    this.lines = this.station.lines.active.join(' / ');
   }
 
 }

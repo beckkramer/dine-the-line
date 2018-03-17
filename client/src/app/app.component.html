@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
 
-<app-station-selector
-    (selectedStation)="loadStation($event)">
-</app-station-selector>
-
-
-<app-result-set *ngIf="currentStation" [station]="currentStation"></app-result-set>
+<main>
+    <app-station-selector
+        (selectedStation)="loadStation($event)">
+    </app-station-selector>
+    <app-result-set *ngIf="currentStation" [station]="currentStation"></app-result-set>
+</main>

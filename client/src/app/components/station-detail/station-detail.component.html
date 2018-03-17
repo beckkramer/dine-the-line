@@ -1,7 +1,7 @@
 <div class="station-detail">
     <div>
         <h3 class="station-detail__title">{{station.name}} Station</h3>
-        Lines: <span class="station-detail__lines">{{lines}}</span><br />    
+        <span class="visually-hidden">Lines: </span><span class="station-detail__lines">{{lines}}</span>
     </div>
     <img *ngIf="station.accessible" src="/assets/img/a11y-icon.svg" alt="accessible" />
 </div>
