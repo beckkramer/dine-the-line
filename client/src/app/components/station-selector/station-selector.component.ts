@@ -24,10 +24,6 @@ export class StationSelectorComponent implements OnInit {
     this.getAllStations();
   }
 
-  ngOnChange() {
-    console.log('there!');
-  }
-
   getAllStations(): void {
     this.StationService
       .getAllStations()

@@ -2,7 +2,7 @@
 <form [formGroup]="filters" (change)="updateSelectedLines()">
   <fieldset formArrayName="selectedLines">
     <legend>Filter by Lines</legend>
-    <label *ngFor="let filter of filters.get('selectedLines').controls; let i=index">
+    <label *ngFor="let filter of filters.get('selectedLines')['controls']; let i=index">
       <input
         [formControlName]="i"
         name="selectedLines"

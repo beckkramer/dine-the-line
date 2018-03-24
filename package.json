@@ -11,7 +11,7 @@
     "prodclient": "cd client && npm install",
     "prodserver": "node server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\"",
-    "start": "concurrently --kill-others-on-fail \"npm run prodserver\" \"npm run prodclient\""
+    "start": "npm run prodclient && npm run prodserver"
   },
   "dependencies": {
     "concurrently": "^3.5.1",
