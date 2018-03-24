@@ -9,9 +9,9 @@
     "devclient": "cd client && npm start",
     "devserver": "nodemon server.js",
     "prodclient": "cd client && npm install",
-    "prodserver": "node server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\"",
-    "start": "npm run prodclient && npm run prodserver"
+    "start": "node server.js",
+    "postinstall": "npm run prodclient"
   },
   "dependencies": {
     "concurrently": "^3.5.1",
