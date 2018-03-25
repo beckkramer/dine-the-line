@@ -5,14 +5,18 @@
     grid-gap: 1rem;
     grid-auto-rows: minmax(max-content, auto);
     list-style-type: none;
-    margin: 1rem 0;
-    padding: 1.5rem;
+    margin: 1rem -1rem;
+    padding: 1rem;
     position: relative;
 
-    @media screen and (min-width: 40rem) {
+    @media screen and (min-width: 30rem) {
+        margin: 1rem 0;
+        padding: 1.5rem;
+    }
+    @media screen and (min-width: 42rem) {
         grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (min-width: 60rem) {
+    @media screen and (min-width: 62rem) {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -20,7 +24,7 @@
 .station-button {
 
     background: radial-gradient(circle at 80%, rgba(255,255,255,0.20), rgba(255,255,255,0.1));
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px solid transparent;
     border-radius: 3px;
     color: #fff;
     display: block;
@@ -36,5 +40,38 @@
         background: rgba(255,255,255,0.15);
         border-color: rgba(255,255,255,0.20);
         transform: scale(1.05);
+    }
+}
+
+.selected-station {
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+    h2 {
+        border-bottom: 1px solid rgba(255,255,255,0.25);
+        flex: 1 0 100%;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    & > * {
+        flex: 1 0 auto;
+    }
+
+    & > button {
+        flex: 1 0 auto;
+        margin: 1rem 0 0;
+    }
+
+    @media screen and (min-width: 32rem) {
+        & > button {
+            flex: 0 0 auto;
+            margin: 0 0 0 1rem;
+        }
     }
 }

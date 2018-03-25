@@ -1,0 +1,21 @@
+.result-set {
+
+    background: rgba(0,0,0,0.1);
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(max-content, auto);
+    margin: 1rem -1rem;
+    padding: 1rem;
+    position: relative;
+
+    @media screen and (min-width: 30rem) {
+        margin: 1rem 0;
+        padding: 1.5rem;
+    }
+    @media screen and (min-width: 54rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (min-width: 70rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

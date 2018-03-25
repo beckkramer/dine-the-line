@@ -1,20 +1,34 @@
-<h3 className="result__title">{{result.name}}</h3>
-<h4 class="vh">Categories</h4>
-<ul className="info-list result__categories">
-  <li *ngFor="let category of result.categories">
-    {{category.title}}
-  </li>
-</ul>
-<h4>Business Information</h4>
-<ul className="info-list">
-  <li className="info-list__item">Price: {{result.price || 'Not Available'}}</li>
-  <li className="info-list__item">Distance from Station: {{result.distance}}</li>
-  <li className="info-list__item">Address: {{result.location.display_address[0]}} {{result.location.display_address[1]}}</li>
-  <li className="info-list__item">Phone: {{result.display_phone || 'Not Available'}}</li>
-</ul>
-<h4>Ratings</h4>
-<div className="result__rating">
-  <img className="result__rating__item" alt={{rating_alt}} src="{{star_image}}" />
-  <span className="result__rating__item result__review-count">({{result.review_count}} reviews)</span>
-  <a className="result__rating__item yelp-button" href={{result.url}}><img src="assets/img/yelp/Yelp_trademark_RGB_outline.png" alt="View on Yelp" width="70px" /></a>
-</div>
+<section class="result">
+  <header class="result__header">
+    <h3 class="result__title">{{result.name}}</h3>
+    <div class="result__categories">
+      <h4 class="visually-hidden">Categories</h4>
+      <ul class="info-list">
+        <li *ngFor="let category of result.categories">
+          {{category.title}}
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="result__info">
+    <h4 class="visually-hidden">Business Information</h4>
+    <ul class="info-list">
+      <li class="info-list__item info-list__item--inline">
+        <span class="info-list__title visually-hidden">Price:</span> {{result.price || 'N/A'}}</li>
+      <li class="info-list__item info-list__item--inline">
+        <span class="info-list__title visually-hidden">Distance from Station:</span> {{result.distance | number:'0.2'}}m from station</li>
+      <li class="info-list__item">
+        <span class="info-list__title visually-hidden">Address:</span> {{result.location.display_address[0]}} {{result.location.display_address[1]}}</li>
+      <li class="info-list__item">
+        <span class="info-list__title visually-hidden">Phone:</span> {{result.display_phone || 'Not Available'}}</li>
+    </ul>
+  </div>
+  <div class="result__rating">
+    <h4 class="visually-hidden">Ratings</h4>
+    <div class="result__rating__stars">
+      <img class="result__rating__item" alt={{rating_alt}} src="{{star_image}}" />
+      <span class="result__rating__item result__review-count">({{result.review_count}} reviews)</span>
+    </div>
+    <a class="result__rating__item yelp-button" href={{result.url}}>View on <span class="visually-hidden">Yelp</span><img src="assets/img/yelp/Yelp_trademark_RGB_outline.png" alt="" width="70px" /></a>
+  </div>
+</section>

@@ -9,7 +9,10 @@
 
     &__title {
         display: inline;
+        font-weight: 600;
+        letter-spacing: 1px;
         margin: 0;
+        text-transform: uppercase;
         vertical-align: baseline;
     }
 
@@ -17,5 +20,17 @@
         display: block;
         line-height: 1;
         text-transform: capitalize;
+    }
+}
+
+.station__icon {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    svg {
+        fill: #FFF;
+        height: 1.866rem;
     }
 }

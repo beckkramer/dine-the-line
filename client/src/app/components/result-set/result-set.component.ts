@@ -13,7 +13,7 @@ import { Station } from '../../station';
 @Component({
   selector: 'app-result-set',
   templateUrl: './result-set.component.html',
-  styleUrls: ['./result-set.component.css']
+  styleUrls: ['./result-set.component.scss']
 })
 export class ResultSetComponent implements OnInit {
 
