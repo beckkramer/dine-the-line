@@ -14,6 +14,7 @@ import { ResultSetComponent } from './components/result-set/result-set.component
 
 import { ResultsService } from './services/results.service';
 import { StationService } from './services/station.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { StationService } from './services/station.service';
     StationDetailComponent,
     ResultSetComponent,
     ResultDetailComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

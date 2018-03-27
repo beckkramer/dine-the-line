@@ -17,15 +17,22 @@
 }
 
 html {
-  //background: url(assets/img/backgrounds/stardust.png);
   font-size: 18px;
   font-family: 'Homenaje', sans-serif;
+  height: 100vh;
 }
 
 body {
+
   background: linear-gradient(to right, rgb(20, 74, 155), rgb(45, 109, 206));
-  //background: linear-gradient(to right, rgba(11, 54, 117, 0.6), rgba(19, 90, 197, 0.6));
   margin: 0;
+  height: 100vh;
+
+  & > :first-child {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 }
 
 h2,

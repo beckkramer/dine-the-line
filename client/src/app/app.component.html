@@ -1,9 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
-
 <main>
-    <app-station-selector
-        (selectedStation)="loadStation($event)">
-    </app-station-selector>
-    <app-result-set *ngIf="currentStation" [station]="currentStation"></app-result-set>
+    <div class="blurb" *ngIf="initialView">
+        <h2>Dine the Line helps you find places to eat near Chicago's L stations.</h2>
+        <p>Just pick a station, and you'll get a list of businesses nearby!</p>
+        <button (click)="start()">Let's go!</button>
+    </div>
+
+    <ng-container *ngIf="!initialView">
+        <app-station-selector
+            (selectedStation)="loadStation($event)">
+        </app-station-selector>
+        <app-result-set *ngIf="currentStation" [station]="currentStation"></app-result-set>
+    </ng-container>
 </main>
+<app-footer></app-footer>

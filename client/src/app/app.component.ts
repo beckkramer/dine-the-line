@@ -9,8 +9,13 @@ import { Station } from './station';
 export class AppComponent {
 
   currentStation: Station;
+  initialView: boolean = true;
 
   loadStation(selectedStation: Station) {
     this.currentStation = selectedStation;
+  }
+
+  start() {
+    this.initialView = false;
   }
 }
