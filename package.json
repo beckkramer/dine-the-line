@@ -19,6 +19,7 @@
     "yelp-fusion": "^2.0.3"
   },
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "nodemon": "^1.14.12"
   }
 }
