@@ -6,11 +6,11 @@ const yelp = require('yelp-fusion');
 TODO: Add in for gender neutral restrooms (gender_neutral_restrooms) and currently open (open_now)
  */
 
-router.get('/:location/:radius', function(req, res, next) {
+router.get('/:location', function(req, res, next) {
 
   let latitude, longitude;
 
-  const radius = req.params.radius; // 805 = half a mile
+  const radius = 805; // half a mile
   const client = yelp.client(process.env.API_KEY);
 
   if (req.params.location) {
@@ -25,7 +25,7 @@ router.get('/:location/:radius', function(req, res, next) {
       'latitude': latitude,
       'longitude': longitude,
       'radius': radius,
-      'sorty_by': 'distance',
+      'sort_by': 'distance',
     }).then(function(result){
       res.status(200).json(result);
     }).catch(function(error){
