@@ -4,18 +4,18 @@
     display: grid;
     grid-gap: 1rem;
     grid-auto-rows: minmax(max-content, auto);
-    margin: 1rem -1rem;
+    margin: 1rem -1rem 0;
     padding: 1rem;
     position: relative;
 
-    @media screen and (min-width: 30rem) {
-        margin: 1rem 0;
-        padding: 1.5rem;
-    }
-    @media screen and (min-width: 54rem) {
+    @media screen and (min-width: 35rem) {
         grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (min-width: 70rem) {
+    @media screen and (min-width: 55rem) {
         grid-template-columns: repeat(3, 1fr);
+        padding: 1.5rem;
+    }
+    @media screen and (min-width: 75rem) {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
