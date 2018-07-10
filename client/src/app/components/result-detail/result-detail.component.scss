@@ -84,25 +84,20 @@
         flex-direction: row;
         justify-content: space-between;
         margin: 1rem 0;
-        padding: 1rem 0 0;
+        padding: 0.5rem;
     
         .yelp-button {
             align-items: center;
             color: #fff;
             display: flex;
+            flex: 1 0 auto;
             justify-content: center;
+            margin: 0;
             padding: 0.5rem 0.5rem 0.5rem 1rem;
         }
     
         @media screen and (min-width: 30rem) {
-    
             margin: 1rem -1rem 0;
-            padding: 0;
-    
-            .yelp-button {
-                margin: 3px;
-                flex: 0 0 auto;
-            }
         }
     }
 }

@@ -13,7 +13,7 @@ export class ResultsService {
   ) { }
 
   getResults(location: string): Observable<any> {
-    const url = `/api/yelp/${location}/805`;
+    const url = `/api/yelp/${location}`;
     return this.http.get<any>(url);
   }
 }
