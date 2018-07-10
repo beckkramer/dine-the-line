@@ -6,20 +6,18 @@
   "author": "beckkramer <kramer.beck@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "devclient": "cd client && npm start",
+    "develop": "concurrently \"heroku local:run npm run devserver\" \"cd client && npm start\"",
     "devserver": "nodemon server.js",
+    "postinstall": "npm run prodclient",
     "prodclient": "cd client && npm install",
-    "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\"",
-    "start": "node server.js",
-    "postinstall": "npm run prodclient"
+    "start": "node server.js"
   },
   "dependencies": {
-    "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "yelp-fusion": "^2.0.3"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "nodemon": "^1.14.12"
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.5"
   }
 }
