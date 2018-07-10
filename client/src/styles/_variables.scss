@@ -1,0 +1,20 @@
+
+$colors: (
+    background: (
+        dark: rgba(5, 41, 95, 0.9),
+        light: rgb(20, 74, 155),
+    ),
+    border: rgba(255,255,255,0.5),
+    button: (
+        background: rgb(5, 65, 121)
+    ),
+    font: #fff,
+);
+
+$colors--background: map-get($colors, 'background');
+$colors--button: map-get($colors, 'button');
+
+$spacing: (
+    inner: 0.75rem,
+    outer: 1rem,
+);

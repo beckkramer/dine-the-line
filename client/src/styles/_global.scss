@@ -1,7 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
 
 @import url('https://fonts.googleapis.com/css?family=Dosis|Homenaje');
+@import '~styles/variables';
 
 /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 .visually-hidden {
@@ -25,7 +24,7 @@ html {
 
 body {
 
-  background: linear-gradient(to right, rgb(20, 74, 155), rgb(45, 109, 206));
+  background: linear-gradient(to right, map-get($colors--background, 'light'), lighten(map-get($colors--background, 'light'), 10%));
   margin: 0;
   height: 100vh;
 
@@ -38,24 +37,9 @@ body {
 
 h2,
 h3 {
-  font-family: Dosis;
+  font-family: 'Dosis', sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
-}
-
-h1 {
-  margin: 0;
-}
-
-h2 {
-  margin: 0;
-}
-
-h3 {
-  margin: 3rem 0 1rem;
-}
-h4 {
-  margin: 0.5rem 0 0.25rem;
 }
 
 ul {
@@ -63,20 +47,19 @@ ul {
 }
 
 
-$button-color: rgb(5, 65, 121);
 
 button,
 .button {
-  background: $button-color;
+  background: map-get($colors--button, 'background');
   border-style: solid;
   border-width: 0 0 3px;
-  border-color: darken($button-color, 10%);
+  border-color: darken(map-get($colors--button, 'background'), 10%);
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
   font-family: 'Homenaje', sans-serif;
   font-size: 1rem;
-  margin: 0 0 0.5rem;
-  padding: 0.5rem 0.75rem;
+  margin: 0 0 map-get($spacing, 'outer');
+  padding: map-get($spacing, 'inner');
   text-decoration: none;
 }
