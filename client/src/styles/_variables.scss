@@ -1,18 +1,29 @@
 
+$main: rgb(20, 74, 155);
+
 $colors: (
     background: (
-        dark: rgba(5, 41, 95, 0.9),
-        light: rgb(20, 74, 155),
+        card: transparentize(mix($main, #FFF, 10%), 0.8),
+        dark: #404b69,
+        light: $main,
     ),
-    border: rgba(255,255,255,0.5),
+    border: (
+        defined: rgba(255,255,255,0.5),
+        subtle: rgba(255,255,255,0.1),
+    ),
     button: (
         background: rgb(5, 65, 121)
     ),
-    font: #fff,
+    font: (
+        main: #FFF,
+        secondary: #CCC,
+    ),
 );
 
 $colors--background: map-get($colors, 'background');
+$colors--border: map-get($colors, 'border');
 $colors--button: map-get($colors, 'button');
+$colors--font: map-get($colors, 'font');
 
 $spacing: (
     inner: 0.75rem,

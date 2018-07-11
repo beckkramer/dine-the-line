@@ -9,6 +9,6 @@
   This station has no business results.
 </div>
 
-<ul class="result-set" *ngIf="results && results.length > 0">
+<ul class="grid result-set" *ngIf="results && results.length > 0">
   <app-result-detail *ngFor="let result of results" [result]="result"></app-result-detail>
 </ul>

@@ -1,18 +1,14 @@
 
 .station-detail {
-    
+
+    align-content: center;
     display: flex;
     flex-direction: row;
-    align-content: center;
     justify-content: space-between;
     text-align: left;
 
     &__title {
         display: inline;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin: 0;
-        text-transform: uppercase;
         vertical-align: baseline;
     }
 

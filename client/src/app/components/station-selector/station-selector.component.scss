@@ -1,32 +1,7 @@
-.station-list {
-    
-    background: rgba(0,0,0,0.1);
-    display: grid;
-    grid-gap: 1rem;
-    grid-auto-rows: minmax(max-content, auto);
-    list-style-type: none;
-    margin: 1rem -1rem;
-    padding: 1rem;
-    position: relative;
-
-    @media screen and (min-width: 30rem) {
-        margin: 1rem 0;
-        padding: 1.5rem;
-    }
-    @media screen and (min-width: 42rem) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @media screen and (min-width: 62rem) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+@import '~styles/variables';
 
 .station-button {
 
-    background: radial-gradient(circle at 80%, rgba(255,255,255,0.20), rgba(255,255,255,0.1));
-    border: 1px solid transparent;
-    border-radius: 3px;
-    color: #fff;
     display: block;
     font-weight: 400;
     height: 100%;

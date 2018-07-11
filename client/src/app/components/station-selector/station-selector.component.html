@@ -1,10 +1,10 @@
 <div [hidden]="displayStation">
   <h2>Select a Station:</h2>
   <app-station-filter (stationFilters)="filterStations($event)"></app-station-filter>
-  <ul class="station-list">
+  <ul class="grid station-list">
     <li *ngFor="let station of stations">
       <button
-        class="station-button"
+        class="card station-button"
         (click)="selectStation(station)">
         <app-station-detail [station]="station"></app-station-detail>
       </button>
