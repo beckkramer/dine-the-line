@@ -8,6 +8,7 @@ import { FormArray, FormControl, FormGroup } from "@angular/forms";
 })
 export class StationFilterComponent implements OnInit {
 
+  isActive: Boolean = false;
   filters: FormGroup;
   lines: any = ['pink', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown'];
   showA11y: Boolean = false;
@@ -34,7 +35,9 @@ export class StationFilterComponent implements OnInit {
     });
   }
 
-  showA11yOnlyStations() {}
+  toggleFilters() {
+    this.isActive = !this.isActive;
+  }
   updateSelectedLines() {
 
     const selectedLines = this.filters.value.selectedLines;
