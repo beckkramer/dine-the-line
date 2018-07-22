@@ -10,6 +10,7 @@ export class StationFilterComponent implements OnInit {
 
   filters: FormGroup;
   lines: any = ['pink', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown'];
+  showA11y: Boolean = false;
 
   @Input() currentFilters: any;
   @Output() stationFilters:EventEmitter <any> = new EventEmitter();
@@ -29,14 +30,17 @@ export class StationFilterComponent implements OnInit {
         new FormControl(false),
         new FormControl(false),
       ]),
+      showA11y: new FormControl(false),
     });
   }
 
   showA11yOnlyStations() {}
   updateSelectedLines() {
+
     const selectedLines = this.filters.value.selectedLines;
     const filters = {
       lines: [],
+      showA11y: this.filters.value.showA11y,
     };
 
     selectedLines.forEach((line, index, []) => {

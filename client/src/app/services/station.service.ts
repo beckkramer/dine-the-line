@@ -26,8 +26,11 @@ export class StationService {
     let currentStations: Station[] = allStations;
     let filteredStations: Station[];
 
-    // TODO: add A11y filter:
-    //.filter(station => this.a11yToggle ? station.accessible === true : 'all')
+    if (filters.showA11y) {
+      currentStations = currentStations.filter(station => station.accessible === true);
+    }
+
+    //currentStations = currentStations.filter(station => this.a11yToggle ? station.accessible === true : 'all');
 
     if (filters.lines.length) {
       filteredStations = currentStations.filter(station => station.lines.active.some(line=> filters.lines.includes(line)));

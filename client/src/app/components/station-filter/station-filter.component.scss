@@ -1,18 +1,32 @@
-fieldset {
+.station-filters {
 
-    border: 1px solid rgba(255,255,255,0.25);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    input[type='checkbox'] {
+        margin: 0 0.5rem 0 0;
+    }
 
     label {
         cursor: pointer;
-        flex: 0 1 25%;
-        margin: 0;
-        padding: 0.5rem 1rem;
+        display: inline-block;
+        margin: 0 1rem 1rem;
+        padding: 0.5rem 0.75rem;
     }
-
-    legend {
-        padding: 0 1rem;
+    
+    fieldset {
+    
+        border: 1px solid rgba(255,255,255,0.25);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0.5rem 0;
+    
+        label {
+            flex: 0 1 25%;
+            margin: 0;
+            padding: 0.5rem 1rem;
+        }
+    
+        legend {
+            padding: 0 1rem;
+        }
     }
 }
