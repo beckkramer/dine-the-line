@@ -1,8 +1,17 @@
-<h2>Filters</h2>
-<h3>Station Filters</h3>
-<p>-- A11y Only --</p>
-<p>-- Lines --</p>
-<h3>Result Filters</h3>
-<p>-- Only Open Now --</p>
-<p>-- Gender Neutral Bathrooms --</p>
-<p>-- Wheelchair Accessible --</p>
+<form [formGroup]="resultFilters" (submit)="updateResultFilters()">
+  <h2>Result Filters</h2>
+  <fieldset class="grid">
+    <legend>Sort Results By:</legend>
+    <label *ngFor="let sortValue of sortValues">
+      <input formControlName="sortBy" name="sortBy" type="radio" value={{sortValue}} /> {{sortValue}}
+    </label>
+  </fieldset>
+  <h3>Show businesses that</h3>
+  <label>
+    <input formControlName="openNow" name="openNow" type="checkbox" value={{openNow}} /> are open now
+  </label>
+  <label>
+    <input formControlName="genderNeutralBathrooms" name="genderNeutralBathrooms" type="checkbox" value={{genderNeutral}} /> have gender neutral bathrooms
+  </label>
+  <button type="submit">Filter Businesses</button>
+</form>
