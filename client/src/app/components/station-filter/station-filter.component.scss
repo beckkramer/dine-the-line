@@ -29,38 +29,8 @@
     }
 
     form {
-
         background: rgba(0,0,0,0.5);
         padding: 1rem;
         margin-top: 0;
-
-        fieldset {
-
-            @media screen and (min-width: 20rem) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            @media screen and (min-width: 28rem) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            @media screen and (min-width: 38rem) {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            @media screen and (min-width: 58rem) {
-                grid-template-columns: repeat(5, 1fr);
-            }
-            @media screen and (min-width: 80rem) {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        
-            label {
-                padding: 0.5rem 1rem;
-            }
-        
-            legend {
-                padding: 0 1rem;
-            }
-        }
     }
 }

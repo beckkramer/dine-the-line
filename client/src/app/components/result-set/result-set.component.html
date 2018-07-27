@@ -9,7 +9,9 @@
   This station has no business results.
 </div>
 
-<app-filter-set *ngIf="results && results.length > 0"></app-filter-set>
+<app-filter-set
+  *ngIf="results && results.length > 0"
+  (resultFilterEmitter)="filterResults($event)"></app-filter-set>
 <ul class="grid result-set" *ngIf="results && results.length > 0">
   <app-result-detail *ngFor="let result of results" [result]="result"></app-result-detail>
 </ul>

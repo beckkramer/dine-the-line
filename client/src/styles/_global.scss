@@ -1,14 +1,14 @@
-
 @import url('https://fonts.googleapis.com/css?family=Dosis|Homenaje');
 @import '~styles/variables';
-
 /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+
 .visually-hidden {
   position: absolute !important;
   height: 1px;
-  width: 1px; 
+  width: 1px;
   overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
 
@@ -23,12 +23,10 @@ html {
 }
 
 body {
-
   background: linear-gradient(to right, map-get($colors--background, 'light'), lighten(map-get($colors--background, 'light'), 10%));
   margin: 0;
   height: 100vh;
-
-  & > :first-child {
+  &> :first-child {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -45,8 +43,6 @@ h3 {
 ul {
   margin: 0;
 }
-
-
 
 button,
 .button {
@@ -66,18 +62,28 @@ button,
 
 input[type='checkbox'],
 input[type='radio'] {
-    margin: 0 0.5rem 0 0;
+  margin: 0 0.5rem 0 0;
 }
 
 label {
   cursor: pointer;
   display: inline-block;
   padding: 0.5rem 1rem;
+
+  &.choice {
+    display: flex;
+  }
 }
 
 fieldset {
-
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: grid;
   padding: 0.5rem 0 1rem;
   margin: 0.5rem 0;
+  label {
+    padding: 0.5rem 1rem;
+  }
+  legend {
+    padding: 0 1rem;
+  }
 }

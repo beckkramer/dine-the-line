@@ -13,11 +13,11 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "yelp-fusion": "^2.0.3"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1",
-    "nodemon": "^1.17.5"
+    "concurrently": "^3.6.1",
+    "nodemon": "^1.18.3"
   }
 }

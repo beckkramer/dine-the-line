@@ -29,7 +29,14 @@ export class ResultSetComponent implements OnInit {
     this.getResults(this.station);
   }
 
-  getResults(station: Station): void {
+  filterResults(filters) {
+    this.getResults(this.station, filters);
+  }
+
+  getResults(station: Station, filters: any = []): void {
+
+    console.log(filters);
+
     this.ResultsService
       .getResults(station.location)
       .subscribe(results => {
