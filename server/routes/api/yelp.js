@@ -30,6 +30,7 @@ router.get('/:location/:filters', function(req, res, next) {
       'latitude': latitude,
       'longitude': longitude,
       'radius': radius,
+      'price': filterParams.price ? filterParams.price : '1,2,3,4',
       'sort_by': filterParams.sort_by ? filterParams.sort_by : 'distance',
     }).then(function(result){
       res.status(200).json(result);

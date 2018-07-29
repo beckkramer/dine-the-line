@@ -25,7 +25,11 @@ export class ResultsService {
           filterParams += '&';
         }
 
-        filterParams += `${filter}=${filters[filter].replace(' ', '_')}`;
+        if (typeof filters[filter] === 'string') {
+          filters[filter] = filters[filter].replace(' ', '_')
+        }
+
+        filterParams += `${filter}=${filters[filter]}`;
       }
     });
 
