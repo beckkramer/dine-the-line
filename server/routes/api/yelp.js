@@ -29,6 +29,7 @@ router.get('/:location/:filters', function(req, res, next) {
       'categories':'restaurants',
       'latitude': latitude,
       'longitude': longitude,
+      'open_now': filterParams.open_now ? filterParams.open_now : false,
       'radius': radius,
       'price': filterParams.price ? filterParams.price : '1,2,3,4',
       'sort_by': filterParams.sort_by ? filterParams.sort_by : 'distance',
