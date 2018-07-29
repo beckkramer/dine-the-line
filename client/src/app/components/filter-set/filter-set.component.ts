@@ -29,7 +29,7 @@ export class FilterSetComponent implements OnInit {
   ngOnInit() {
     this.resultFilters = new FormGroup({
       price: new FormArray(this.makeControls(this.priceValues)),
-      gender_neutral_bathrooms: new FormControl(false),
+      gender_neutral_restrooms: new FormControl(false),
       open_now: new FormControl(false),
       sort_by: new FormControl('distance'),
     });
