@@ -34,11 +34,8 @@ export class ResultSetComponent implements OnInit {
   }
 
   getResults(station: Station, filters: any = []): void {
-
-    console.log(filters);
-
     this.ResultsService
-      .getResults(station.location)
+      .getResults(station.location, filters)
       .subscribe(results => {
         this.results = results.jsonBody.businesses
       });

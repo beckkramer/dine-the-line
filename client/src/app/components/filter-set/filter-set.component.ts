@@ -28,10 +28,10 @@ export class FilterSetComponent implements OnInit {
 
   ngOnInit() {
     this.resultFilters = new FormGroup({
-      prices: new FormArray(this.makeControls(this.priceValues)),
-      genderNeutralBathrooms: new FormControl(false),
-      openNow: new FormControl(false),
-      sortBy: new FormControl('distance'),
+      price: new FormArray(this.makeControls(this.priceValues)),
+      gender_neutral_bathrooms: new FormControl(false),
+      open_now: new FormControl(false),
+      sort_by: new FormControl('distance'),
     });
   }
 
@@ -66,7 +66,7 @@ export class FilterSetComponent implements OnInit {
 
   updateResultFilters() {
     const filters = this.resultFilters;
-    filters.value.prices = this.makePriceString(this.resultFilters.value.prices);
+    filters.value.price = this.makePriceString(this.resultFilters.value.price);
     this.resultFilterEmitter.emit(filters.value);
   }
 }
