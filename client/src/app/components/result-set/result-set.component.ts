@@ -19,6 +19,7 @@ export class ResultSetComponent implements OnInit {
 
   @Input() station: Station;
 
+  isActive: Boolean = false;
   results: Business[];
 
   constructor(
@@ -31,6 +32,10 @@ export class ResultSetComponent implements OnInit {
 
   filterResults(filters) {
     this.getResults(this.station, filters);
+  }
+
+  toggleFilters() {
+    this.isActive = !this.isActive;
   }
 
   getResults(station: Station, filters: any = []): void {

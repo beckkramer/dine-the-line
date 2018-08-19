@@ -48,3 +48,24 @@
 .no-wrap {
     white-space: nowrap;
 }
+
+
+.filter-header {
+    min-height: 3rem;
+    padding-right: 7rem;
+    position: relative;
+    
+    &__toggle {
+
+        margin-bottom: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        &.active {
+            background: map-get($colors--background, 'form');
+            border-color: transparent;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+}

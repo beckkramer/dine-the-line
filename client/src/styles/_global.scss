@@ -76,9 +76,11 @@ label {
 }
 
 form {
-  background: rgba(0,0,0,0.5);
+
+  background: map-get($colors--background, 'form');
   padding: 1rem;
   margin-top: 0;
+  width: 100%;
 
   & > *:first-child {
     margin-top: 0;
