@@ -1,17 +1,18 @@
 
 <h3>Places to Eat Near the {{station.name}} Station:</h3>
 
+<app-filter-set
+  *ngIf="results"
+  (resultFilterEmitter)="filterResults($event)"></app-filter-set>
+
 <div *ngIf="!results">
   Loading...
 </div>
 
 <div *ngIf="results && results.length === 0">
-  This station has no business results.
+  This station has no business results for the current filter settings.
 </div>
 
-<app-filter-set
-  *ngIf="results && results.length > 0"
-  (resultFilterEmitter)="filterResults($event)"></app-filter-set>
 <ul class="grid result-set" *ngIf="results && results.length > 0">
   <app-result-detail *ngFor="let result of results" [result]="result"></app-result-detail>
 </ul>

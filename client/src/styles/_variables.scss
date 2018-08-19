@@ -4,6 +4,7 @@ $main: rgb(20, 74, 155);
 $colors: (
     background: (
         card: transparentize(mix($main, #FFF, 10%), 0.8),
+        form: rgba(0,0,0,0.5),
         dark: #404b69,
         light: $main,
     ),
@@ -12,7 +13,8 @@ $colors: (
         subtle: rgba(255,255,255,0.1),
     ),
     button: (
-        background: rgb(5, 65, 121)
+        background: rgb(5, 65, 121),
+        font: #FFF,
     ),
     font: (
         main: #FFF,

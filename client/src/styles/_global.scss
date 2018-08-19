@@ -51,7 +51,7 @@ button,
   border-width: 0 0 3px;
   border-color: darken(map-get($colors--button, 'background'), 10%);
   border-radius: 5px;
-  color: #fff;
+  color: map-get($colors--button, 'font');
   cursor: pointer;
   font-family: 'Homenaje', sans-serif;
   font-size: 1rem;
@@ -75,7 +75,21 @@ label {
   }
 }
 
+form {
+  background: rgba(0,0,0,0.5);
+  padding: 1rem;
+  margin-top: 0;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 fieldset {
+  align-content: flex-start;
   border: 1px solid rgba(255, 255, 255, 0.25);
   display: grid;
   padding: 0.5rem 0 1rem;

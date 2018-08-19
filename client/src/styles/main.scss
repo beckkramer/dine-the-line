@@ -25,7 +25,6 @@
 
     background: map-get($colors--background, 'card');
     border: 1px solid map-get($colors--border, 'subtle');
-    border-radius: 3px;
     box-shadow: 0 3px 3px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;

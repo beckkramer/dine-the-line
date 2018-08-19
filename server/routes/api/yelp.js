@@ -13,33 +13,42 @@ router.get('/:location/:filters', function(req, res, next) {
   const client = yelp.client(process.env.API_KEY);
   const radius = 805; // half a mile
   let attributes = '';
-  let filterParams;
+  let searchParams = {
+    'categories':'restaurants',
+    'radius': radius,
+    'price': null,
+    'sort_by': 'distance',
+  };
 
   if (req.params.location) {
     let locationArray = req.params.location.split(',');
     latitude = locationArray[0];
     longitude = locationArray[1];
+    searchParams.latitude = latitude;
+    searchParams.longitude = longitude;
   }
 
   if (req.params.filters) {
-    filterParams = req.query;
-    
-    if (filterParams.gender_neutral_restrooms) {
-      attributes += 'gender_neutral_restrooms';
+
+    searchParams.open_now = req.query.open_now ? req.query.open_now : false;
+    searchParams.sort_by =  req.query.sort_by ? req.query.sort_by : 'distance';
+
+    if (req.query.gender_neutral_restrooms) {
+      searchParams.attributes = 'gender_neutral_restrooms';
+    }
+
+    if (searchParams.price) {
+
+      // Only filter if less than everything is chosen, so that
+      // 'N/A' results show up as well.
+      if (searchParams.price !== '1,2,3,4') {
+        searchParams.price = req.query.price;
+      }
     }
   }
 
 
-  client.search({
-    'attributes': attributes,
-    'categories':'restaurants',
-    'latitude': latitude,
-    'longitude': longitude,
-    'open_now': filterParams.open_now ? filterParams.open_now : false,
-    'radius': radius,
-    'price': filterParams.price ? filterParams.price : '1,2,3,4',
-    'sort_by': filterParams.sort_by ? filterParams.sort_by : 'distance',
-  }).then(function(result){
+  client.search(searchParams).then(function(result){
     res.status(200).json(result);
   }).catch(function(error){
     console.log(error);
