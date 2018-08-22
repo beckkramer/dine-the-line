@@ -58,6 +58,11 @@ button,
   margin: 0 0 map-get($spacing, 'outer');
   padding: map-get($spacing, 'inner');
   text-decoration: none;
+
+  &--light {
+    background: map-get($colors--button, 'background--light');
+    border-color: darken(map-get($colors--button, 'background--light'), 30%);
+  }
 }
 
 input[type='checkbox'],

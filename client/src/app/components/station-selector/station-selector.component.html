@@ -14,5 +14,5 @@
 <div *ngIf="displayStation" class="selected-station">
   <h2 class="selected-station__title">Selected Station:</h2>
   <app-station-detail [station]="displayStation"></app-station-detail>
-  <button (click)="reset()">Pick a different station</button>
+  <button class="button button--light" (click)="reset()">Pick a different station</button>
 </div>

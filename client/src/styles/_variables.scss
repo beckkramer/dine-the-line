@@ -1,4 +1,4 @@
-
+$light-main: rgb(23, 80, 167);
 $main: rgb(20, 74, 155);
 $dark-main: darken($main, 10%);
 
@@ -15,6 +15,7 @@ $colors: (
     ),
     button: (
         background: adjust-hue($dark-main, 10%),
+        background--light: $main,
         font: #FFF,
     ),
     font: (
