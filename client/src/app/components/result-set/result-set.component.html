@@ -1,14 +1,28 @@
 
-<h3>Places to Eat Near the {{station.name}} Station:</h3>
+<section class="results">
+  <header class="results__header filter-header">
+    <h3>Places to Eat Near the {{station.name}} Station:</h3>
+    <button
+          class="filter-header__toggle"
+          (click)="toggleFilters()"
+          [ngClass]="{'active': isActive}">Filter Results</button>
+  </header>
+  <main>
 
-<div *ngIf="!results">
-  Loading...
-</div>
+      <app-filter-set
+      *ngIf="results && isActive"
+      (resultFilterEmitter)="filterResults($event)"></app-filter-set>
 
-<div *ngIf="results && results.length == 0">
-  This station has no business results.
-</div>
-
-<ul class="grid result-set" *ngIf="results && results.length > 0">
-  <app-result-detail *ngFor="let result of results" [result]="result"></app-result-detail>
-</ul>
+    <div *ngIf="!results">
+      Loading...
+    </div>
+    
+    <div *ngIf="results && results.length === 0">
+      This station has no business results for the current filter settings.
+    </div>
+    
+    <ul class="grid results__set" *ngIf="results && results.length > 0">
+      <app-result-detail *ngFor="let result of results" [result]="result"></app-result-detail>
+    </ul>
+  </main>
+</section>

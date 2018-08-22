@@ -21,13 +21,13 @@
     <h4 class="visually-hidden">Business Information</h4>
     <ul class="info-list">
       <li class="info-list__item info-list__item--inline">
-        <span class="info-list__title visually-hidden">Price:</span> {{result.price || 'N/A'}}</li>
+        <span class="info-list__title visually-hidden">Price:</span> {{result.price || 'No Price Given'}}</li>
       <li class="info-list__item info-list__item--inline">
         <span class="info-list__title visually-hidden">Distance from Station:</span> {{result.distance | number:'0.2'}}m from station</li>
       <li class="info-list__item">
         <span class="info-list__title visually-hidden">Address:</span> {{result.location.display_address[0]}} {{result.location.display_address[1]}}</li>
       <li class="info-list__item">
-        <span class="info-list__title visually-hidden">Phone:</span> {{result.display_phone || 'Not Available'}}</li>
+        <span class="info-list__title visually-hidden">Phone:</span> {{result.display_phone || 'Phone Number Not Available'}}</li>
     </ul>
   </div>
   <footer class="result__footer">

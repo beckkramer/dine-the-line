@@ -6,31 +6,53 @@ const yelp = require('yelp-fusion');
 TODO: Add in for gender neutral restrooms (gender_neutral_restrooms) and currently open (open_now)
  */
 
-router.get('/:location', function(req, res, next) {
+router.get('/:location/:filters', function(req, res, next) {
 
   let latitude, longitude;
 
-  const radius = 805; // half a mile
   const client = yelp.client(process.env.API_KEY);
+  const radius = 805; // half a mile
+  let attributes = '';
+  let searchParams = {
+    'categories':'restaurants',
+    'radius': radius,
+    'price': null,
+    'sort_by': 'distance',
+  };
 
   if (req.params.location) {
     let locationArray = req.params.location.split(',');
     latitude = locationArray[0];
     longitude = locationArray[1];
+    searchParams.latitude = latitude;
+    searchParams.longitude = longitude;
+  }
+
+  if (req.params.filters) {
+
+    searchParams.open_now = req.query.open_now ? req.query.open_now : false;
+    searchParams.sort_by =  req.query.sort_by ? req.query.sort_by : 'distance';
+
+    if (req.query.gender_neutral_restrooms) {
+      searchParams.attributes = 'gender_neutral_restrooms';
+    }
+
+    if (searchParams.price) {
+
+      // Only filter if less than everything is chosen, so that
+      // 'N/A' results show up as well.
+      if (searchParams.price !== '1,2,3,4') {
+        searchParams.price = req.query.price;
+      }
+    }
   }
 
 
-  client.search({
-      'categories':'restaurants',
-      'latitude': latitude,
-      'longitude': longitude,
-      'radius': radius,
-      'sort_by': 'distance',
-    }).then(function(result){
-      res.status(200).json(result);
-    }).catch(function(error){
-      console.log(error);
-    });
+  client.search(searchParams).then(function(result){
+    res.status(200).json(result);
+  }).catch(function(error){
+    console.log(error);
+  });
 
 });
 

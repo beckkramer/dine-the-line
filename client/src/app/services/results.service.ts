@@ -12,8 +12,27 @@ export class ResultsService {
     private http: HttpClient,
   ) { }
 
-  getResults(location: string): Observable<any> {
-    const url = `/api/yelp/${location}`;
-    return this.http.get<any>(url);
+  getResults(location: string, filters: any = []): Observable<any> {
+    const urlRoot = `/api/yelp/${location}`;
+    let filterParams = '/filters?';
+
+    Object.keys(filters).forEach((filter, index) => {
+
+      // Only add params if they are set to true or a string value
+      if (filters[filter]) {
+
+        if (index > 0) {
+          filterParams += '&';
+        }
+
+        if (typeof filters[filter] === 'string') {
+          filters[filter] = filters[filter].replace(' ', '_')
+        }
+
+        filterParams += `${filter}=${filters[filter]}`;
+      }
+    });
+
+    return this.http.get<any>(urlRoot + filterParams);
   }
 }

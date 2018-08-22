@@ -19,6 +19,7 @@ export class ResultSetComponent implements OnInit {
 
   @Input() station: Station;
 
+  isActive: Boolean = false;
   results: Business[];
 
   constructor(
@@ -29,9 +30,17 @@ export class ResultSetComponent implements OnInit {
     this.getResults(this.station);
   }
 
-  getResults(station: Station): void {
+  filterResults(filters) {
+    this.getResults(this.station, filters);
+  }
+
+  toggleFilters() {
+    this.isActive = !this.isActive;
+  }
+
+  getResults(station: Station, filters: any = []): void {
     this.ResultsService
-      .getResults(station.location)
+      .getResults(station.location, filters)
       .subscribe(results => {
         this.results = results.jsonBody.businesses
       });

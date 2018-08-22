@@ -1,8 +1,29 @@
-<h2>Filters</h2>
-<h3>Station Filters</h3>
-<p>-- A11y Only --</p>
-<p>-- Lines --</p>
-<h3>Result Filters</h3>
-<p>-- Only Open Now --</p>
-<p>-- Gender Neutral Bathrooms --</p>
-<p>-- Wheelchair Accessible --</p>
+<form class="result-filters" [formGroup]="resultFilters" (ngSubmit)="updateResultFilters()">
+  <h2>Result Filters</h2>
+  <div class="grid">
+    <fieldset formArrayName="price">
+        <legend>Only show these pricepoints:</legend>
+        <label *ngFor="let value of priceValues; let i=index;">
+        <input [formControlName]="i" name="price" type="checkbox" value={{value}} />
+        {{makePriceLabel(i+1)}} <span class="no-wrap">({{value}})</span>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Sort Results By:</legend>
+        <label *ngFor="let sortValue of sortValues">
+            <input formControlName="sort_by" name="sort_by" type="radio" value={{sortValue}} /> {{sortValue}}
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Show businesses that</legend>
+        <label>
+            <input formControlName="open_now" name="open_now" type="checkbox" value={{open_now}} /> are open now
+        </label>
+        <label>
+            <input formControlName="gender_neutral_restrooms" name="gender_neutral_restrooms" type="checkbox" value={{gender_neutral_restrooms}} /> have gender neutral bathrooms
+        </label>
+    </fieldset>
+  </div>
+  
+  <button type="submit">Filter Businesses</button>
+</form>
