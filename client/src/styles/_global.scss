@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis|Homenaje');
-@import '~styles/variables';
+@import './variables';
 /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
 .visually-hidden {
@@ -17,20 +17,19 @@
 }
 
 html {
+  background: linear-gradient(to right, map-get($colors--background, 'light'), lighten(map-get($colors--background, 'light'), 10%));
   font-size: 18px;
   font-family: 'Homenaje', sans-serif;
   height: 100vh;
 }
 
 body {
-  background: linear-gradient(to right, map-get($colors--background, 'light'), lighten(map-get($colors--background, 'light'), 10%));
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
-  &> :first-child {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+  min-height: 100vh;
+  margin: 0;
 }
 
 h2,
@@ -106,5 +105,61 @@ fieldset {
   }
   legend {
     padding: 0 1rem;
+  }
+}
+
+.global-header {
+    
+    
+  border-bottom: 1px solid map-get($colors--border, 'subtle');
+  box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+  padding: map-get($spacing, 'outer');
+  text-align: center;
+
+  .logo {
+
+      color: map-get($colors--font, 'main');
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin: 0;
+      text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+
+      span {
+          border-width: 1px 0;
+          border-style: solid;
+          border-color: map-get($colors--border, 'defined');
+          bottom: 3px;
+          display: inline-block;
+          font-size: 0.6em;
+          line-height: 1.1;
+          position: relative;
+          vertical-align: baseline;
+      }
+  }
+  p {
+      color: map-get($colors--font, 'secondary');
+      font-size: 0.9rem;
+      margin: 0;
+  }
+}
+
+.global-footer {
+
+  background: rgba(5, 41, 95, 0.9);
+  color: #CCC;
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+
+  a {
+      color: #fff;
+  }
+
+  &__yelp {
+      align-items: center;
+      display: flex;
+      justify-content: center;
   }
 }

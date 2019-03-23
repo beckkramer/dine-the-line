@@ -10,9 +10,9 @@ router.get('/:location/:filters', function(req, res, next) {
 
   let latitude, longitude;
 
+  const attributes = [];
   const client = yelp.client(process.env.API_KEY);
   const radius = 805; // half a mile
-  let attributes = '';
   let searchParams = {
     'categories':'restaurants',
     'radius': radius,
@@ -34,8 +34,14 @@ router.get('/:location/:filters', function(req, res, next) {
     searchParams.sort_by =  req.query.sort_by ? req.query.sort_by : 'distance';
 
     if (req.query.gender_neutral_restrooms) {
-      searchParams.attributes = 'gender_neutral_restrooms';
+      attributes.push('gender_neutral_restrooms');
     }
+
+    if (req.query.wheelchair_accessible) {
+      attributes.push('wheelchair_accessible');
+    }
+
+    searchParams.attributes = attributes.join(',')
 
     if (searchParams.price) {
 

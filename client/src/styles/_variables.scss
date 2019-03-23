@@ -14,7 +14,7 @@ $colors: (
         subtle: rgba(255,255,255,0.1),
     ),
     button: (
-        background: adjust-hue($dark-main, 10%),
+        background: adjust-hue($dark-main, 30%),
         background--light: $main,
         font: #FFF,
     ),
