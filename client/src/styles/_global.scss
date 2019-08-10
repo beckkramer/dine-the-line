@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis|Homenaje');
 @import './variables';
-/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
+/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -17,149 +16,16 @@
 }
 
 html {
-  background: linear-gradient(to right, map-get($colors--background, 'light'), lighten(map-get($colors--background, 'light'), 10%));
-  font-size: 18px;
-  font-family: 'Homenaje', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 body {
+  color: map-get($colors--font, 'main');
   display: flex;
   flex-direction: column;
+  font-family: map-get($fonts, 'primary');
   justify-content: space-between;
-  height: 100vh;
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
 }
 
-h2,
-h3 {
-  font-family: 'Dosis', sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-ul {
-  margin: 0;
-}
-
-button,
-.button {
-  background: map-get($colors--button, 'background');
-  border-style: solid;
-  border-width: 0 0 3px;
-  border-color: darken(map-get($colors--button, 'background'), 10%);
-  border-radius: 5px;
-  color: map-get($colors--button, 'font');
-  cursor: pointer;
-  font-family: 'Homenaje', sans-serif;
-  font-size: 1rem;
-  margin: 0 0 map-get($spacing, 'outer');
-  padding: map-get($spacing, 'inner');
-  text-decoration: none;
-
-  &--light {
-    background: map-get($colors--button, 'background--light');
-    border-color: darken(map-get($colors--button, 'background--light'), 30%);
-  }
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  margin: 0 0.5rem 0 0;
-}
-
-label {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-
-  &.choice {
-    display: flex;
-  }
-}
-
-form {
-
-  background: map-get($colors--background, 'form');
-  padding: 1rem;
-  margin-top: 0;
-  width: 100%;
-
-  & > *:first-child {
-    margin-top: 0;
-  }
-  & > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-fieldset {
-  align-content: flex-start;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  display: grid;
-  padding: 0.5rem 0 1rem;
-  margin: 0.5rem 0;
-  label {
-    padding: 0.5rem 1rem;
-  }
-  legend {
-    padding: 0 1rem;
-  }
-}
-
-.global-header {
-    
-    
-  border-bottom: 1px solid map-get($colors--border, 'subtle');
-  box-shadow: 0 3px 5px rgba(0,0,0,0.25);
-  padding: map-get($spacing, 'outer');
-  text-align: center;
-
-  .logo {
-
-      color: map-get($colors--font, 'main');
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-      line-height: 1;
-      margin: 0;
-      text-transform: uppercase;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-
-      span {
-          border-width: 1px 0;
-          border-style: solid;
-          border-color: map-get($colors--border, 'defined');
-          bottom: 3px;
-          display: inline-block;
-          font-size: 0.6em;
-          line-height: 1.1;
-          position: relative;
-          vertical-align: baseline;
-      }
-  }
-  p {
-      color: map-get($colors--font, 'secondary');
-      font-size: 0.9rem;
-      margin: 0;
-  }
-}
-
-.global-footer {
-
-  background: rgba(5, 41, 95, 0.9);
-  color: #CCC;
-  font-size: 0.8rem;
-  padding: 1rem;
-  text-align: center;
-
-  a {
-      color: #fff;
-  }
-
-  &__yelp {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-  }
-}

@@ -6,15 +6,21 @@ import Welcome from './scenes/Welcome/Welcome'
 class App extends Component {
 
   state = {
-    welcomed: false
+    station: null,
+    welcomed: true,
+  }
+
+  welcome = () => {
+    this.setState({welcomed: true})
   }
 
   render() {
     return (
       <main className="App">
 
-        <Welcome />
-        
+        {!this.state.welcomed && (
+          <Welcome onWelcome={this.welcome} />
+        )}
         <StationSelection />
         <section>Results!</section>
       </main>

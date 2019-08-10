@@ -1,12 +1,20 @@
-$light-main: rgb(23, 80, 167);
-$main: rgb(20, 74, 155);
-$dark-main: darken($main, 10%);
+@import url('https://fonts.googleapis.com/css?family=Antonio|Oswald');
+
+// $light-main: rgb(23, 80, 167);
+// $main: rgb(20, 74, 155);
+// $dark-main: darken($main, 10%);
+
+$light-main: #fff;
+$main: #e2e2e2;
+$dark-main: #333;
+$spot-main: #004EBB;
 
 $colors: (
     background: (
+        action: $spot-main,
         card: transparentize(mix($main, #FFF, 10%), 0.8),
         form: $dark-main,
-        dark: #404b69,
+        dark: $dark-main,
         light: $main,
     ),
     border: (
@@ -14,12 +22,12 @@ $colors: (
         subtle: rgba(255,255,255,0.1),
     ),
     button: (
-        background: adjust-hue($dark-main, 30%),
+        background: $spot-main,
         background--light: $main,
         font: #FFF,
     ),
     font: (
-        main: #FFF,
+        main: $dark-main,
         secondary: #CCC,
     ),
 );
@@ -29,7 +37,12 @@ $colors--border: map-get($colors, 'border');
 $colors--button: map-get($colors, 'button');
 $colors--font: map-get($colors, 'font');
 
+$fonts: (
+    secondary: ('Antonio', sans-serif),
+    primary: ('Oswald', sans-serif)
+);
+
 $spacing: (
     inner: 0.75rem,
-    outer: 1rem,
+    outer: 1.5rem,
 );
