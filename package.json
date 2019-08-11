@@ -6,10 +6,10 @@
   "author": "beckkramer <kramer.beck@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "develop": "concurrently \"heroku local:run npm run devserver\" \"cd client && npm start\"",
+    "develop": "concurrently \"heroku local:run yarn devserver\" \"cd client && yarn start\"",
     "devserver": "nodemon server.js",
-    "postinstall": "npm run prodclient",
-    "prodclient": "cd client && npm install",
+    "postinstall": "yarn run prodclient",
+    "prodclient": "cd client && yarn install",
     "start": "node server.js"
   },
   "dependencies": {
