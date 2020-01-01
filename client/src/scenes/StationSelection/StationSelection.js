@@ -34,7 +34,7 @@ export default class StationSelection extends Component {
             />
             
             {stations.length > 0 && (
-              <ul>
+              <ul className="stationList">
                 {stations.map((station) => {
                   const {
                     accessible,
@@ -45,10 +45,14 @@ export default class StationSelection extends Component {
                   
                   return (
                     <li
+                      className="stationList__item"
                       id={stop_id}
                       key={stop_id}
                     >
-                      <Link to={`/station/${stop_id}`}>
+                      <Link
+                        className="stationList__link"
+                        to={`/station/${stop_id}`}
+                      >
                         <StationInfo
                           a11y={accessible}
                           key={`${stop_id}-stationlink`}

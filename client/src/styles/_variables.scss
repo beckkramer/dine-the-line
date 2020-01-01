@@ -1,23 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Antonio|Oswald');
 
-// $light-main: rgb(23, 80, 167);
-// $main: rgb(20, 74, 155);
-// $dark-main: darken($main, 10%);
+$color-blue-0: #001C89;
+$color-blue-1: #002FA5;
+$color-blue-2: #004EBB;
+$color-blue-3: #005DE0;
+$color-blue-4: #2776FF;
+
+$color-grey-0: #2E2E38;
+$color-grey-1: #44455E;
+$color-grey-2: #65668B;
+$color-grey-3: #A9AABC;
+$color-grey-4: #E2E3E9;
+$color-grey-5: #F4F4F7;
 
 $light-main: #fff;
-$main: #e2e2e2;
-$dark-main: #333;
-$spot-main: #004EBB;
+$main: $color-grey-4;
+$dark-main: $color-grey-0;
+$spot-main: $color-blue-2;
 
 $colors: (
     background: (
         action: $spot-main,
-        card: transparentize(mix($main, #FFF, 10%), 0.8),
+        card: $light-main,
         form: $dark-main,
         dark: $dark-main,
         light: $main,
     ),
     border: (
+        accent: $spot-main,
         defined: rgba(255,255,255,0.5),
         subtle: rgba(255,255,255,0.1),
     ),
@@ -26,16 +36,16 @@ $colors: (
         background--light: $main,
         font: #FFF,
     ),
-    font: (
+    text: (
         main: $dark-main,
-        secondary: #CCC,
+        secondary: $color-grey-1,
     ),
 );
 
 $colors--background: map-get($colors, 'background');
 $colors--border: map-get($colors, 'border');
 $colors--button: map-get($colors, 'button');
-$colors--font: map-get($colors, 'font');
+$colors--text: map-get($colors, 'text');
 
 $fonts: (
     secondary: ('Antonio', sans-serif),

@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.stationList {
+  list-style-type: none;
+  padding: map-get($spacing, 'inner');
+
+  &__item {
+    margin: map-get($spacing, 'inner') 0;
+  }
+
+  &__link {
+    border: 3px solid map-get($colors--border, 'accent');
+    color: map-get($colors--text, 'main');
+    display: block;
+    padding: map-get($spacing, 'inner');
+    position: relative;
+    text-decoration: none;
+
+    
+
+    &:hover,
+    &:focus {
+      &::after {
+      background: linear-gradient(
+        110deg, #FFF 1rem, 1rem,#FFF 1.1rem, 1.1rem, map-get($colors--border, 'accent') 100%
+      );
+      bottom: 0;
+      color: #FFF;
+      content: "choose >";
+      font-family: "Oswald";
+      font-size: 12px;
+      padding: 0.5rem 1rem 0.5rem 1.75rem;
+      position: absolute;
+      right: 0;
+      text-transform: uppercase;
+    }
+    }
+  }
+}

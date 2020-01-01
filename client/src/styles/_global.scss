@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  color: map-get($colors--font, 'main');
+  color: map-get($colors--text, 'main');
   display: flex;
   flex-direction: column;
   font-family: map-get($fonts, 'primary');

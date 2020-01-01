@@ -1,0 +1,16 @@
+.Card {
+  border: 1px solid black;
+  padding: 0;
+
+  .categories,
+  .content,
+  .footer {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .categories {
+    background: black;
+    color: white;
+  }
+}

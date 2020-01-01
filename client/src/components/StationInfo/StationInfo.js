@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './StationInfo.scss'
 const StationInfo = (props) => {
 
   const displayLines = props.lines.active.join(' / ')
@@ -16,10 +17,12 @@ const StationInfo = (props) => {
   }
 
   return(
-    <div>
-      <h3>{props.name}</h3>
-      Lines: {displayLines}<br />
-      Details: {details.length ? details.join(' / ') : 'N/A'}
+    <div className="StationInfo">
+      <h3 className="StationInfo__title">{props.name}</h3>
+      <dl className="StationInfo__details">
+        <dt>Lines:</dt><dd>{displayLines}</dd>
+        <dt>Details:</dt><dd>{details.length ? details.join(' / ') : 'N/A'}</dd>
+      </dl>
     </div>
   )
 }

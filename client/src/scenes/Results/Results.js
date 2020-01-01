@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 
 import Axios from 'axios'
 
+import Card from '../../components/Card'
 import StationInfo from '../../components/StationInfo'
+
+import './Results.scss'
 
 export default class Results extends Component {
 
@@ -13,7 +16,7 @@ export default class Results extends Component {
 
   componentDidMount() {
     Axios
-      .get(`/api/yelp/${this.props.station.location}`)
+      .get(`/api/yelp/${this.props.station.location}/filters?${this.props.filters.join(',')}`)
       .then(results => {
         this.setState({
           results: results.data.jsonBody,
@@ -42,42 +45,33 @@ export default class Results extends Component {
         <h1>Businesses near this station:</h1>
 
         {results ? (
-          <ul>
+          <ul className="Results">
             {results.businesses.map((result) => {
+            
+              const {
+                categories,
+                id,
+                location,
+                name,
+                price,
+                rating,
+                review_count,
+                transactions,
+                url
+              } = result
               
-              const categoryLabel = result.categories.map(category => category.title)
-              const priceLevel = result.price.length
-
-              let describedPrice = 'average meal, tax and tip is '
-              
-              switch(priceLevel) {
-                case 1:
-                  describedPrice += 'under 10'
-                  break
-                case 2:
-                  describedPrice += '11-30'
-                  break
-                case 3:
-                  describedPrice += '31-60'
-                  break
-                case 4:
-                  describedPrice += 'above 61'
-                  break
-                default:
-              }
-
-              describedPrice += ' dollars'
-
               return (
-                <li key={result.id}>
-                  <p>{categoryLabel.join(', ')}</p>
-                  <h3>{result.name}</h3>
-                  <p>Price: <span className="visually-hidden">{describedPrice}</span> <span aria-hidden="true">{result.price}</span>  &bull; Distance from Station: {result.distance}</p>
-                  <p>Rating: <img src="" alt={`${result.rating} out of 5 stars`} /> ({result.review_count} reviews)</p>
-                  {result.transactions.length > 0 && <p>
-                    Offers {result.transactions.join(', ')}
-                  </p>}
-                  <a href={result.url}>View on Yelp</a>
+                <li key={id}>
+                  <Card
+                    categories={categories}
+                    location={location}
+                    name={name}
+                    price={price}
+                    rating={rating}
+                    review_count={review_count}
+                    transactions={transactions}
+                    url={url}
+                  />
                 </li>
               )
           })}

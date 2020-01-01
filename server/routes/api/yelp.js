@@ -16,9 +16,11 @@ router.get('/:location/:filters', function(req, res, next) {
   let searchParams = {
     'categories':'restaurants',
     'radius': radius,
-    'price': null,
+    'price': '1,2,3,4',
     'sort_by': 'distance',
   };
+
+  console.log(req.params.filters)
 
   if (req.params.location) {
     let locationArray = req.params.location.split(',');
@@ -31,6 +33,7 @@ router.get('/:location/:filters', function(req, res, next) {
   if (req.params.filters) {
 
     searchParams.open_now = req.query.open_now ? req.query.open_now : false;
+    searchParams.price = req.query.price ? req.query.price : '1,2,3,4';
     searchParams.sort_by =  req.query.sort_by ? req.query.sort_by : 'distance';
 
     if (req.query.gender_neutral_restrooms) {
@@ -40,19 +43,12 @@ router.get('/:location/:filters', function(req, res, next) {
     if (req.query.wheelchair_accessible) {
       attributes.push('wheelchair_accessible');
     }
+    if (req.query.open_to_all) {
+      attributes.push('open_to_all');
+    }
 
     searchParams.attributes = attributes.join(',')
-
-    if (searchParams.price) {
-
-      // Only filter if less than everything is chosen, so that
-      // 'N/A' results show up as well.
-      if (searchParams.price !== '1,2,3,4') {
-        searchParams.price = req.query.price;
-      }
-    }
   }
-
 
   client.search(searchParams).then(function(result){
     res.status(200).json(result);
